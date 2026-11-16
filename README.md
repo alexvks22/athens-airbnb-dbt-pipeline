@@ -1,4 +1,5 @@
 # 🏛️ Athens Airbnb Analytics Engineering Pipeline (dbt + DuckDB)
+[![dbt CI Pipeline](https://github.com/alexvks22/athens-airbnb-dbt-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/alexvks22/athens-airbnb-dbt-pipeline/actions/workflows/ci.yml)
 
 An end-to-end **Analytics Engineering** pipeline implementing the **Medallion Architecture (Bronze → Silver → Gold)** on real-world Athens short-term rental data using **dbt-core**, **DuckDB**, and **GitHub Actions CI/CD**.
 
