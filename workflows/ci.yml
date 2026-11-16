@@ -1,0 +1,31 @@
+name: dbt CI Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  dbt-build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install dbt-duckdb duckdb
+
+      - name: Load sample Bronze tables & Run dbt build
+        run: |
+          mkdir -p data
+          python scripts/create_ci_sample_data.py
+          dbt build --profiles-dir . --target ci

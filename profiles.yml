@@ -6,6 +6,6 @@ athens_airbnb:
       schema: main
     ci:
       type: duckdb
-      path: ':memory:' # Στο CI/CD τρέχει προσωρινά στη μνήμη
+      path: data/ci_airbnb.duckdb
       schema: main
   target: dev
