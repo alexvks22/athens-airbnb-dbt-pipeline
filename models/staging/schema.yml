@@ -1,0 +1,35 @@
+version: 2
+
+models:
+  - name: stg_listings
+    columns:
+      - name: listing_id
+        tests:
+          - unique
+          - not_null
+      - name: is_active_listing
+        tests:
+          - not_null
+      - name: room_type
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['Entire home/apt', 'Private room', 'Shared room', 'Hotel room']
+  - name: stg_reviews
+    columns:
+      - name: review_id
+        tests:
+          - unique
+          - not_null
+      - name: listing_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('stg_listings')
+                field: listing_id
+
+  - name: stg_calendar
+    columns:
+      - name: calendar_date
+        tests:
+          - not_null
