@@ -1,0 +1,11 @@
+athens_airbnb:
+  outputs:
+    dev:
+      type: duckdb
+      path: data/athens_airbnb.duckdb # Το τοπικό αρχείο της βάσης
+      schema: main
+    ci:
+      type: duckdb
+      path: :memory: # Στο CI/CD τρέχει προσωρινά στη μνήμη
+      schema: main
+  target: dev
