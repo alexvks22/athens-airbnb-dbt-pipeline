@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: bronze
+    meta:
+      description: "Raw Athens Airbnb data from storage"
+    tables:
+      - name: raw_listings
+      - name: raw_reviews
+      - name: raw_calendar

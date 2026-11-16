@@ -2,19 +2,11 @@ name: 'athens_airbnb_dbt'
 version: '1.0.0'
 config-version: 2
 
-profile: 'athens_airbnb' # Το όνομα του profile για το DuckDB
+profile: 'athens_airbnb'
 
 model-paths: ["models"]
-analysis-paths: ["analyses"]
 test-paths: ["tests"]
-seed-paths: ["seeds"]
 macro-paths: ["macros"]
-snapshot-paths: ["snapshots"]
-
-target-path: "target"
-clean-targets:
-  - "target"
-  - "dbt_packages"
 
 models:
   athens_airbnb_dbt:

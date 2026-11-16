@@ -223,3 +223,9 @@ __marimo__/
 target/
 dbt_packages/
 *.duckdb*
+data/raw/*
+!data/raw/.gitkeep
+
+#Ignore file user.yml and log related files
+.user.yml
+logs/
