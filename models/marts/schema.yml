@@ -1,0 +1,32 @@
+version: 2
+
+models:
+  - name: dim_hosts
+    description: "Dimension table containing unique Athens Airbnb hosts and responsiveness metrics."
+    columns:
+      - name: host_id
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_listings
+    description: "Core fact table combining listing attributes with aggregated review and calendar metrics."
+    columns:
+      - name: listing_id
+        tests:
+          - unique
+          - not_null
+      - name: host_id
+        tests:
+          - relationships:
+              arguments:
+                to: ref('dim_hosts')
+                field: host_id
+
+  - name: dim_neighborhood
+    description: "Summary dimension/mart table of Airbnb supply, pricing, and ratings per Athens neighbourhood."
+    columns:
+      - name: neighbourhood
+        tests:
+          - unique
+          - not_null
